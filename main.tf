@@ -84,15 +84,10 @@ module "ec2_instance" {
   version                = "5.6.0"
   name                   = "public-module-ec2"
   ami                    = data.aws_ami.root_module_ami.id
-  instance_type          = "t3.micro"
+  instance_type          = "t3.small"
   subnet_id              = module.vpc.public_subnets[0]
   vpc_security_group_ids = [module.security_group.security_group_id]
   tags = {
     Name = "public-module-ec2"
   }
-}
-
-resource "aws_key_pair" "vcs-test-kp" {
-  key_name = "vcs-test-kp"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQz8z1"
 }
