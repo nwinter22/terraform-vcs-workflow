@@ -91,3 +91,8 @@ module "ec2_instance" {
     Name = "public-module-ec2"
   }
 }
+
+resource "aws_key_pair" "vcs-test-kp" {
+  key_name = "vcs-test-kp"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDQz8z1"
+}
